@@ -1,28 +1,16 @@
-function login() {
+const togglePassword = document.getElementById("togglePassword");
+const password = document.getElementById("password");
 
-    let username = document.getElementById("username").value.trim();
-    let password = document.getElementById("password").value.trim();
+if (togglePassword) {
+    togglePassword.addEventListener("click", function () {
 
-    let message = document.getElementById("message");
+        if (password.type === "password") {
+            password.type = "text";
+            this.classList.replace("fa-eye", "fa-eye-slash");
+        } else {
+            password.type = "password";
+            this.classList.replace("fa-eye-slash", "fa-eye");
+        }
 
-    if (username === "kishor" && password === "123456") {
-
-        message.innerHTML = "Login Successful";
-        message.style.color = "green";
-
-        
-        setTimeout(function () {
-
-            window.location.href = "home_page.html";
-
-        }, 1000);
-
-    }
-    else {
-
-        message.innerHTML = "Invalid Username or Password";
-        message.style.color = "red";
-
-    }
-
+    });
 }
